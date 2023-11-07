@@ -1,22 +1,36 @@
-<script setup>
-// import WelcomeItem from './WelcomeItem.vue'
-// import Edit from './icons/ant-design_edit-outlined.svg'
-// import ToolingIcon from './icons/IconTooling.vue'
-// import EcosystemIcon from './icons/IconEcosystem.vue'
-// import CommunityIcon from './icons/IconCommunity.vue'
-// import SupportIcon from './icons/IconSupport.vue'
+<script>
+export default {
+  data() {
+    return {
+      buttons: [
+        { id: 0, name: 'Beyaz Eşya Servisi' },
+        { id: 1, name: 'Buzdolabı Tamiri' },
+        { id: 2, name: 'Buzdolabı Tamiri' },
+        { id: 3, name: 'Çamaşır Makinesi Tamiri' },
+        { id: 4, name: 'Bulaşık Makinesi Tamiri' },
+        { id: 5, name: 'Bulaşık Makinesi Tamiri' },
+        { id: 6, name: 'Fırın Tamiri' },
+        { id: 7, name: 'Davlumbaz Tamiri' },
+        { id: 8, name: 'Küçük Ev Aletleri Tamiri' }
+      ],
+      highlightedButton: null,
+    };
+  },
+  methods: {
+    highlightButton(id) {
+      this.highlightedButton = id;
+    },
+  },
+};
 </script>
 
-<!-- <div>
-  <img src="./icons/ant-design_edit-outlined.svg" class="w-10 h-10 bg-black" />
-</div> -->
-
 <template>
+  <!-- Top Half -->
   <div class="flex flex-col xl:flex-row">
     <!-- Top Left -->
-    <div>
+    <div class="max-xl:justify-center max-xl:items-center mx-auto">
       <!-- First -->
-      <div class="flex xl:p-10 md:p-14 max-xl:justify-center">
+      <div class="flex xl:p-10 md:p-14">
         <div>
           <img src="./images/fix-store.png" class="" />
         </div>
@@ -123,6 +137,20 @@
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+  </div>
+  <!-- Bottom Half -->
+  <!-- Bottom Left -->
+  <!-- First -->
+  <div>
+    <div>Hizmet Verdiği Sektörler</div>
+    <div className="mb-28 max-w-[53rem] text-center sm:mb-40">
+      <div class="flex flex-wrap">
+        <button v-for="button in buttons" :key="button.id" @click="highlightButton(button.id)"
+          :class="{ 'bg-blue-500': button.id === highlightedButton }" class="m-2 py-2 px-4 rounded-lg cursor-pointer">
+          {{ button.name }}
+        </button>
       </div>
     </div>
   </div>
