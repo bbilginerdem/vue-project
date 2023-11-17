@@ -148,10 +148,25 @@ export default {
     <div className="mb-28 max-w-[53rem] text-center sm:mb-40">
       <div class="flex flex-wrap">
         <button v-for="button in buttons" :key="button.id" @click="highlightButton(button.id)"
-          :class="{ 'bg-blue-500': button.id === highlightedButton }" class="m-2 py-2 px-4 rounded-lg cursor-pointer">
+          :class="{ 'bg-blue-500 border-none': button.id === highlightedButton }"
+          class="m-2 py-2 px-4 border border-slate-300 rounded-lg cursor-pointer transition">
           {{ button.name }}
         </button>
       </div>
     </div>
   </div>
+  <!-- Second -->
+  <div>
+    <div>Hizmet Verdiği İlçeler</div>
+    <div className="mb-28 max-w-[53rem] text-center sm:mb-40">
+      <div class="flex flex-wrap">
+        <button v-for="button in buttons" :key="button.id" @click="highlightButton(button.id)"
+          :class="{ 'bg-blue-500 border-none': button.id === highlightedButton }"
+          class="m-2 py-2 px-4 border border-slate-300 rounded-lg cursor-pointer transition">
+          {{ button.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Bottom Right -->
 </template>
